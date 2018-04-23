@@ -7,8 +7,8 @@ ask = Ask(app, '/')
 logging.getLogger('flask_ask').setLevel(logging.INFO)
 
 #Initialize Time/game
-TIME = 0
-GAME = 0
+Timer = 0
+Games = 0
 
 
 @ask.launch
@@ -18,15 +18,15 @@ def launchRequest():
 
 @ask.intent('AddStretchAfter')
 # User asks Alexa to set a reminder to stretch after {Time} minutes or {Game} games
-def addStretchAfter(TIME,GAME):
-    if (TIME == 0 and GAME == 0):
+def addStretchAfter(Timer, Games):
+    if (Timer == 0 and Games == 0):
         return statement(f"Please specify time or number of games")
-    elif TIME !=0:
+    elif Timer !=0:
         #Add code to use timer and remind after {TIME}
-        return statement(f"Reminding to stretch after {TIME} minutes")
-    elif GAME != 0:
+        return statement(f"Reminding to stretch after {Timer} minutes")
+    elif Games != 0:
         #Add code to use timer and remind after fixed interval of time to see if game is done
-        return statement(f"Reminding to stretch after {GAME} games")
+        return statement(f"Reminding to stretch after {Games} games")
     
 
 
